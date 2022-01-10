@@ -37,7 +37,7 @@ public class GameController {
         isPlayGame = false;
     }
 
-    public void printPitchResult () {
+    private void printPitchResult () {
         if (strike == 0 && ball == 0) {
             System.out.println("낫싱");
             return;
@@ -45,7 +45,13 @@ public class GameController {
 
         if (strike > 0) System.out.println("스트라이크 " + strike);
 
-        if (ball > 0) System.out.println("볼" + ball);
+        if (strike > 0) {
+            System.out.println(strike + "스트라이크");
+        }
+
+        if (ball > 0) {
+            System.out.println(ball + "볼");
+        }
     }
 
     private void resetScore() {
