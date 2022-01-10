@@ -1,9 +1,7 @@
 package baseball;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import nextstep.utils.Randoms;
+import nextstep.utils.Console;
 
 public class GameController {
     private static boolean isPlayGame = true;
@@ -62,6 +60,26 @@ public class GameController {
     private void resetScore() {
         strike = 0;
         ball = 0;
+    }
+
+    private void restartGame(){
+        setGamePlay();
+        resetScore();
+    }
+
+    private void restartByPlayerInput(){
+        System.out.println("게임을 새로 시작하려면1, 종료하려면 2를 입력하세요.");
+        String playerPitch = Console.readLine();
+        checkPlayerPitch(playerPitch);
+    }
+
+    private void checkPlayerPitch(String playerPitch){
+        if (playerPitch.equals("1")) {
+            restartGame();
+        }
+        if(playerPitch.equals("2")){
+            System.out.println("게임이 종료되었습니다.");
+        }
     }
 
     private void judgePitches( ArrayList<Integer> playerPitches, ArrayList<Integer> computerPlayerPitches){
