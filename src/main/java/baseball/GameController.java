@@ -12,15 +12,13 @@ public class GameController {
 
     public void playGame(){
         Player player = new Player();
-
         ComputerPlayer computerPlayer = new ComputerPlayer();
-        ArrayList<Integer> computerPlayerNumbers = computerPlayer.getRandomNumbers();
-        System.out.println(computerPlayerNumbers);
+        ArrayList<Integer> computerPlayerPitches = computerPlayer.getRandomNumbers();
 
         while(strike < 3){
             resetScore();
-            ArrayList<Integer> playerNumbers = player.getPlayerNumber();
-            judgePitches(computerPlayerNumbers, playerNumbers);
+            ArrayList<Integer> playerNumbers = player.getPlayerPitches();
+            judgePitches(computerPlayerPitches, playerNumbers);
             printPitchResult();
         }
     }
@@ -67,21 +65,20 @@ public class GameController {
     }
 
     private void updatePitchResult (int playerPitch,ArrayList<Integer> computerPlayerPitches, int index){
-        if(isStrike(playerPitch,computerPlayerPitches,index)){
+        if(checkStrike(playerPitch,computerPlayerPitches,index)){
             strike++;
         }
 
-        if(isBall(playerPitch,computerPlayerPitches,index)){
+        if(checkBall(playerPitch,computerPlayerPitches,index)){
             ball++;
         }
     }
 
-    private boolean isStrike(int playerPitch,ArrayList<Integer> computerPlayerPitches, int index){
+    private boolean checkStrike(int playerPitch,ArrayList<Integer> computerPlayerPitches, int index){
         return playerPitch == computerPlayerPitches.get(index);
     }
 
-    private boolean isBall(int playerPitch,ArrayList<Integer> computerPlayerPitches, int index) {
-        return computerPlayerPitches.contains(playerPitch)
-            && computerPlayerPitches.indexOf(playerPitch) > -1;
+    private boolean checkBall(int playerPitch,ArrayList<Integer> computerPlayerPitches, int index) {
+        return computerPlayerPitches.contains(playerPitch) && computerPlayerPitches.get(index) != playerPitch;
     }
 }
