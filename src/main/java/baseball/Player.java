@@ -1,31 +1,27 @@
 package baseball;
 
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.List;
+import nextstep.utils.Console;
 
 public class Player {
+    private static final int MAX_PITCH_COUNT = 3;
 
-    public static int INPUT_LENGTH = 3;
+    public ArrayList<Integer> getPlayerPitches() {
+        ArrayList<Integer> playerPitches = new ArrayList<>();
+        System.out.println("숫자를 입력해주세요.");
+        String playerPitch = Console.readLine();
+        isValidPitchCount(playerPitch);
 
-    public List<Integer> getPlayerNumber() {
-        System.out.println("숫자를 입력해주세요");
-        Scanner scanner = new Scanner(System.in);
-
-        List<Integer> playerNumbers = new ArrayList<>();
-        String input = scanner.next();
-        isValidLength(input);
-
-        for (String number : input.split("")) {
-            playerNumbers.add(Integer.parseInt(number));
+        for (String pitch : playerPitch.split("")) {
+            playerPitches.add(Integer.parseInt(pitch));
         }
 
-        return playerNumbers;
+        return playerPitches;
     }
 
-    public void isValidLength(String s) {
-        if (s.length() != INPUT_LENGTH) {
-            throw new IllegalArgumentException("세 자리 수가 아님!!");
+    public void isValidPitchCount(String playerPitch) {
+        if (playerPitch.length() != MAX_PITCH_COUNT) {
+            throw new IllegalArgumentException("세 자리 수를 입력해주세요.");
         }
     }
 }
