@@ -6,6 +6,7 @@ import java.util.Scanner;
 import nextstep.utils.Randoms;
 
 public class GameController {
+    private static boolean isPlayGame = true;
     private static int strike = 0;
     private static int ball = 0;
 
@@ -24,8 +25,16 @@ public class GameController {
         }
     }
 
-    public boolean isPlayGame(){
-        return strike != 3;
+    public boolean  getIsPlayGame(){
+        return isPlayGame;
+    }
+
+    private void setGamePlay(){
+        isPlayGame = true;
+    }
+
+    private void setGameEnd(){
+        isPlayGame = false;
     }
 
     public void printPitchResult () {
