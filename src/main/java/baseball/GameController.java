@@ -19,6 +19,7 @@ public class GameController {
         while(strike < 3){
             ArrayList<Integer> playerNumbers = player.getPlayerNumber();
             judgePitches(computerPlayerNumbers, playerNumbers);
+            printPitchResult();
         }
     }
 
@@ -26,10 +27,21 @@ public class GameController {
         return strike != 3;
     }
 
+    public void printPitchResult () {
+        if (strike == 0 && ball == 0) {
+            System.out.println("낫싱");
+            return;
+        }
+
+        if (strike > 0) System.out.println("스트라이크 " + strike);
+
+        if (ball > 0) System.out.println("볼" + ball);
+    }
+
     private void judgePitches( ArrayList<Integer> playerPitches, ArrayList<Integer> computerPlayerPitches){
         for(int i = 0; i < playerPitches.size(); i++){
-          int playerPitch = playerPitches.get(i);
-          updatePitchResult(playerPitch,computerPlayerPitches,i);
+            int playerPitch = playerPitches.get(i);
+            updatePitchResult(playerPitch,computerPlayerPitches,i);
         }
     }
 
