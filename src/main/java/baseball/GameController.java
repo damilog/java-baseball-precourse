@@ -17,6 +17,7 @@ public class GameController {
         System.out.println(computerPlayerNumbers);
 
         while(strike < 3){
+            resetScore();
             ArrayList<Integer> playerNumbers = player.getPlayerNumber();
             judgePitches(computerPlayerNumbers, playerNumbers);
             printPitchResult();
@@ -36,6 +37,11 @@ public class GameController {
         if (strike > 0) System.out.println("스트라이크 " + strike);
 
         if (ball > 0) System.out.println("볼" + ball);
+    }
+
+    private void resetScore() {
+        strike = 0;
+        ball = 0;
     }
 
     private void judgePitches( ArrayList<Integer> playerPitches, ArrayList<Integer> computerPlayerPitches){
