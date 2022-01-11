@@ -7,8 +7,6 @@ public class GameController {
 
     private static final int MIN_PITCH_COUNT = 0;
     private static final int MAX_PITCH_COUNT = 3;
-
-
     private boolean isPlayGame = true;
     private int strike = 0;
     private int ball = 0;
