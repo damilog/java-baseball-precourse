@@ -50,7 +50,7 @@ public class GameController {
         }
 
         if (strike > 0) {
-            System.out.println(strike + "스트라이크");
+            System.out.print(strike + "스트라이크 ");
         }
 
         if (ball > 0) {
@@ -85,6 +85,7 @@ public class GameController {
 
     private void judgePitches(ArrayList<Integer> playerPitches,
         ArrayList<Integer> computerPlayerPitches) {
+
         for (int i = 0; i < playerPitches.size(); i++) {
             int playerPitch = playerPitches.get(i);
             updatePitchResult(playerPitch, computerPlayerPitches, i);
