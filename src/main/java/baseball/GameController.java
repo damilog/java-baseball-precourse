@@ -17,7 +17,7 @@ public class GameController {
         while (strike < 3) {
             resetScore();
             ArrayList<Integer> playerNumbers = player.getPlayerPitches();
-            judgePitches(computerPlayerPitches, playerNumbers);
+            judgePitches(playerNumbers, computerPlayerPitches);
             printPitchResult();
         }
     }
