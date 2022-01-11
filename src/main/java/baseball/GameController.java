@@ -5,6 +5,7 @@ import nextstep.utils.Console;
 
 public class GameController {
 
+    public boolean isValidPlayerPitch = true;
     private static final int MIN_PITCH_COUNT = 0;
     private static final int MAX_PITCH_COUNT = 3;
     private boolean isPlayGame = true;
@@ -19,9 +20,13 @@ public class GameController {
 
         while (strike < MAX_PITCH_COUNT) {
             resetScore();
-            ArrayList<Integer> playerNumbers = player.getPlayerPitches();
-            judgePitches(playerNumbers, computerPlayerPitches);
-            printPitchResult();
+            ArrayList<Integer> playerPitches = player.getPlayerPitches();
+            isValidPlayerPitch = player.checkPlayerPitch(playerPitches);
+
+            if (isValidPlayerPitch) {
+                judgePitches(playerPitches, computerPlayerPitches);
+                printPitchResult();
+            }
         }
     }
 
