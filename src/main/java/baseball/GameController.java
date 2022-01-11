@@ -79,7 +79,7 @@ public class GameController {
             restartGame();
         }
         if (playerPitch.equals("2")) {
-            System.out.println("게임이 종료되었습니다.");
+            System.out.println("게임 끝");
         }
     }
 
