@@ -5,10 +5,12 @@ import nextstep.utils.Randoms;
 
 public class ComputerPlayer {
 
-    public ArrayList<Integer> getRandomNumbers() {
-        ArrayList<Integer> randomNumbers = new ArrayList<Integer>();
+    private static final int MAX_PITCH_COUNT = 3;
 
-        while (randomNumbers.size() < 3) {
+    public ArrayList<Integer> getRandomNumbers() {
+        ArrayList<Integer> randomNumbers = new ArrayList<>();
+
+        while (randomNumbers.size() < MAX_PITCH_COUNT) {
             int num = Randoms.pickNumberInRange(1, 9);
             if (!randomNumbers.contains(num)) {
                 randomNumbers.add(num);

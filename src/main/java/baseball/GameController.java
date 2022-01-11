@@ -5,6 +5,10 @@ import nextstep.utils.Console;
 
 public class GameController {
 
+    private static final int MIN_PITCH_COUNT = 0;
+    private static final int MAX_PITCH_COUNT = 3;
+
+
     private boolean isPlayGame = true;
     private int strike = 0;
     private int ball = 0;
@@ -15,7 +19,7 @@ public class GameController {
         ArrayList<Integer> computerPlayerPitches = computerPlayer.getRandomNumbers();
         resetScore();
 
-        while (strike < 3) {
+        while (strike < MAX_PITCH_COUNT) {
             resetScore();
             ArrayList<Integer> playerNumbers = player.getPlayerPitches();
             judgePitches(playerNumbers, computerPlayerPitches);
@@ -36,25 +40,22 @@ public class GameController {
     }
 
     private void printPitchResult() {
-        if (strike == 0 && ball == 0) {
+        if (strike == MIN_PITCH_COUNT && ball == MIN_PITCH_COUNT) {
             System.out.println("낫싱");
-            return;
         }
 
-        if (strike == 3) {
+        if (strike == MAX_PITCH_COUNT) {
             System.out.println(strike + "스트라이크");
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
             setGameEnd();
             restartByPlayerCommand();
-
-            return;
         }
 
-        if (strike > 0) {
+        if (strike > MIN_PITCH_COUNT) {
             System.out.print(strike + "스트라이크 ");
         }
 
-        if (ball > 0) {
+        if (ball > MIN_PITCH_COUNT) {
             System.out.println(ball + "볼");
         }
     }
@@ -72,7 +73,7 @@ public class GameController {
 
     private void checkPlayerCommand(String playerPitch) {
         if (playerPitch.equals("1")) {
-            restartGame();
+            setGamePlay();
         }
         if (playerPitch.equals("2")) {
             System.out.println("게임 끝");
