@@ -45,7 +45,7 @@ public class GameController {
             System.out.println(strike + "스트라이크");
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
             setGameEnd();
-            restartByPlayerInput();
+            restartByPlayerCommand();
 
             return;
         }
@@ -64,15 +64,10 @@ public class GameController {
         ball = 0;
     }
 
-    private void restartGame() {
-        setGamePlay();
-        resetScore();
-    }
-
-    private void restartByPlayerInput() {
+    private void restartByPlayerCommand() {
         System.out.println("게임을 새로 시작하려면1, 종료하려면 2를 입력하세요.");
-        String playerPitch = Console.readLine();
-        checkPlayerCommand(playerPitch);
+        String playerCommand = Console.readLine();
+        checkPlayerCommand(playerCommand);
     }
 
     private void checkPlayerCommand(String playerPitch) {
