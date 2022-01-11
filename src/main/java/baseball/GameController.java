@@ -5,9 +5,9 @@ import nextstep.utils.Console;
 
 public class GameController {
 
-    private static boolean isPlayGame = true;
-    private static int strike = 0;
-    private static int ball = 0;
+    private boolean isPlayGame = true;
+    private int strike = 0;
+    private int ball = 0;
 
     public void playGame() {
         Player player = new Player();
