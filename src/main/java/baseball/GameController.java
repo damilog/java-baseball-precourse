@@ -13,6 +13,7 @@ public class GameController {
         Player player = new Player();
         ComputerPlayer computerPlayer = new ComputerPlayer();
         ArrayList<Integer> computerPlayerPitches = computerPlayer.getRandomNumbers();
+        resetScore();
 
         while (strike < 3) {
             resetScore();
